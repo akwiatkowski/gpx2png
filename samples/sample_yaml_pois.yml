@@ -1,0 +1,480 @@
+--- 
+# Beskid niski
+- :name: Lackowa
+  :ele: 997
+  :cmt: Beskid Niski, Highest mountain in Beskid Niski in Poland
+  :lat: 49.428333
+  :lon: 21.096111
+  :sym: Summit
+  # not used in gps, but for future use - diff. file for mountain range
+  :m_range: Beskid Niski
+
+- :name: Bieliczna
+  :ele: 600
+  :cmt: Beskid Niski, Abandomed village
+  :lat: 49.44195
+  :lon: 21.09712
+  :sym: Trail Head
+
+- :name: Regetów
+  :ele: 600
+  :cmt: Beskid Niski, Cemetary
+  :lat: 49.45268
+  :lon: 21.22367
+  :sym: Trail Head
+
+- :name: Radocyna
+  :ele: 600
+  :cmt: Beskid Niski, Cemetary
+  :lat: 49.4666667
+  :lon: 21.3833333
+  :sym: Trail Head
+
+- :name: Ciechania
+  :ele: 600
+  :cmt: Beskid Niski, Abandomed village
+  :lat: 49.45
+  :lon: 21.516111
+  :sym: Trail Head
+
+- :name: Wilsznia
+  :ele: 600
+  :cmt: Beskid Niski, Abandomed village
+  :lat: 49.462776
+  :lon: 21.628771
+  :sym: Trail Head
+
+- :name: Smereczne
+  :ele: 600
+  :cmt: Beskid Niski, Abandomed village
+  :lat: 49.468577
+  :lon: 21.647826
+  :sym: Trail Head
+
+- :name: Jasiel
+  :ele: 600
+  :cmt: Beskid Niski, Abandomed village
+  :lat: 49.367222
+  :lon: 21.909722
+  :sym: Trail Head
+
+- :name: Rosochatka
+  :ele: 753
+  :cmt: Beskid Niski, 238m prominence
+  :lat: 49.626667
+  :lon: 20.858056
+  :sym: Summit
+  :m_range: Beskid Niski
+
+#- :name: Jaworze
+#  :ele: 882
+#  :cmt: Beskid Niski
+#  :lat:
+#  :lon: 
+#  :sym: Summit
+#  :m_range: Beskid Niski
+
+- :name: Jaworzyna Konieczniańska
+  :ele: 881
+  :cmt: Beskid Niski, 271m prominence
+  :lat: 49.4475
+  :lon: 21.263889
+  :sym: Summit
+  :m_range: Beskid Niski
+
+- :name: Grzywacka Góra
+  :ele: 567
+  :cmt: Beskid Niski
+  :lat: 49.571389
+  :lon: 21.538611
+  :sym: Summit
+  :m_range: Beskid Niski
+
+- :name: Łysa Góra (Beskid Niski)
+  :ele: 641
+  :cmt: Beskid Niski
+  :lat: 49.564722
+  :lon: 21.551944
+  :sym: Summit
+  :m_range: Beskid Niski
+
+- :name: Baranie
+  :ele: 754
+  :cmt: Beskid Niski, 211m prominence
+  :lat: 49.437222
+  :lon: 21.596389
+  :sym: Summit
+  :m_range: Beskid Niski
+
+- :name: Przymiarki
+  :ele: 626
+  :cmt: Beskid Niski
+  :lat: 49.541111
+  :lon: 21.805833
+  :sym: Summit
+  :m_range: Beskid Niski
+
+- :name: Busov
+  :ele: 1002
+  :cmt: Beskid Niski
+  :lat: 49.388611
+  :lon: 21.162778
+  :sym: Summit
+  :m_range: Beskid Niski
+
+- :name: Czarny Dział
+  :ele: 706
+  :cmt: Beskid Niski
+  :lat: 49.442034
+  :lon: 21.200165
+  :sym: Summit
+  :m_range: Beskid Niski
+
+- :name: Wysota
+  :ele: 784
+  :cmt: Beskid Niski
+  :lat: 49.429085
+  :lon: 21.208062
+  :sym: Summit
+  :m_range: Beskid Niski
+
+- :name: Rotunda (Beskid Niski)
+  :ele: 771
+  :cmt: Beskid Niski, Cementary 51
+  :lat: 49.4725
+  :lon: 21.233889
+  :sym: Summit
+  :m_range: Beskid Niski
+
+- :name: Ropki
+  :ele: 500
+  :cmt: Beskid Niski, Village
+  :lat: 49.466667
+  :lon: 21.133333
+  :sym: Residence
+  :m_range: Beskid Niski
+
+- :name: Ostry Wierch (Beskid Niski)
+  :ele: 938
+  :cmt: Beskid Niski, 175m prominence
+  :lat: 49.439167
+  :lon: 21.123056
+  :sym: Summit
+  :m_range: Beskid Niski
+
+- :name: Przełęcz Beskid (Beskid Niski)
+  :ele: 800
+  :cmt: Beskid Niski
+  :lat: 49.425825
+  :lon: 21.075525
+  :sym: Trail Head
+  :m_range: Beskid Niski
+
+- :name: Izby
+  :ele: 500
+  :cmt: Beskid Niski
+  :lat: 49.441566
+  :lon: 21.064196
+  :sym: Residence
+  :m_range: Beskid Niski
+
+- :name: Łosie
+  :ele: 500
+  :cmt: Beskid Niski
+  :lat: 49.569919
+  :lon: 21.086385
+  :sym: Residence
+  :m_range: Beskid Niski
+
+- :name: Uście Gorlickie
+  :ele: 500
+  :cmt: Beskid Niski
+  :lat: 49.521357
+  :lon: 21.1396
+  :sym: Residence
+  :m_range: Beskid Niski
+
+- :name: Hańczowa
+  :ele: 500
+  :cmt: Beskid Niski
+  :lat: 49.475201
+  :lon: 21.162432
+  :sym: Residence
+  :m_range: Beskid Niski
+
+- :name: Wysowa Zdrój
+  :ele: 500
+  :cmt: Beskid Niski
+  :lat: 49.441616
+  :lon: 21.173247
+  :sym: Residence
+  :m_range: Beskid Niski
+
+- :name: Kozie Żebro
+  :ele: 847
+  :cmt: Beskid Niski
+  :lat: 49.4625
+  :lon: 21.203611
+  :sym: Summit
+  :m_range: Beskid Niski
+
+- :name: Przełęcz Regetowska
+  :ele: 646
+  :cmt: Beskid Niski
+  :lat: 49.439444
+  :lon: 21.248056
+  :sym: Trail Head
+  :m_range: Beskid Niski
+
+- :name: Obycz
+  :ele: 788
+  :cmt: Beskid Niski
+  :lat: 49.434645
+  :lon: 21.240635
+  :sym: Summit
+  :m_range: Beskid Niski
+
+- :name: Regietów
+  :ele: 500
+  :cmt: Beskid Niski
+  :lat: 49.479444
+  :lon: 21.216667
+  :sym: Residence
+  :m_range: Beskid Niski
+
+- :name: Regetów Wyżny (Cementary)
+  :ele: 500
+  :cmt: Beskid Niski, Cementary
+  :lat: 49.451928
+  :lon: 21.224319
+  :sym: Trail Head
+  :m_range: Beskid Niski
+
+- :name: Bordiów Wierch
+  :ele: 752
+  :cmt: Beskid Niski
+  :lat: 49.494717
+  :lon: 21.110418
+  :sym: Summit
+  :m_range: Beskid Niski
+
+- :name: Smerekowiec
+  :ele: 500
+  :cmt: Beskid Niski
+  :lat: 49.516667
+  :lon: 21.233333
+  :sym: Residence
+  :m_range: Beskid Niski
+
+- :name: Magura Małastowska
+  :ele: 813
+  :cmt: Beskid Niski, 228m prominence
+  :lat: 49.556111
+  :lon: 21.221667
+  :sym: Summit
+  :m_range: Beskid Niski
+
+#- :name: Kwiatoń
+#  :ele: 600
+#  :cmt: Beskid Niski
+#  :lat:
+#  :lon:
+#  :sym: Summit
+#  :m_range: Trail Head
+
+
+# Other
+- :name: Mużeń
+  :ele: 450
+  :cmt: Pogórze Rożnowskie
+  :lat: 49.633056
+  :lon: 20.737778
+  :sym: Summit
+  :m_range: Pogórze Rożnowskie
+
+- :name: Turbacz
+  :ele: 1310
+  :cmt: Gorce, 600m prominence
+  :lat: 49.542944
+  :lon: 20.111556
+  :sym: Summit
+  :m_range: Gorce
+
+- :name: Tobołów
+  :ele: 994
+  :cmt: Gorce
+  :lat: 49.575306
+  :lon: 20.067167
+  :sym: Summit
+  :m_range: Gorce
+
+- :name: Trzydniowiański Wierch
+  :ele: 1758
+  :cmt: Tatry
+  :lat: 49.219556
+  :lon: 19.803361
+  :sym: Summit
+  :m_range: Tatry
+
+- :name: Kończysty Wierch
+  :ele: 2002
+  :cmt: Tatry
+  :lat: 49.206139
+  :lon: 19.808472
+  :sym: Summit
+  :m_range: Tatry
+
+- :name: Sokolik
+  :ele: 642
+  :cmt: Rudawy Janowickie
+  :lat: 50.869717
+  :lon: 15.867928
+  :sym: Summit
+  :m_range: Rudawy Janowickie
+
+- :name: Skalnik (Rudawy Janowickie)
+  :ele: 945
+  :cmt: Rudawy Janowickie, 220m prominence
+  :lat: 50.809222
+  :lon: 15.901589
+  :sym: Summit
+  :m_range: Rudawy Janowickie
+
+- :name: Waligóra
+  :ele: 936
+  :cmt: Góry Suche, Góry Kamienne, 366m prominence
+  :lat: 50.683333
+  :lon: 16.283333
+  :sym: Summit
+  :m_range: Góry Kamienne
+
+- :name: Średniak (Góry Kamienne)
+  :ele: 782
+  :cmt: Góry Suche, Góry Kamienne
+  :lat: 50.671944
+  :lon: 16.235833
+  :sym: Summit
+  :m_range: Góry Kamienne
+
+# 2012.04 - Beskid Śląski
+
+- :name: Poznań Główny PKP
+  :ele: 110
+  :cmt: PKP
+  :lat: 52.401694
+  :lon: 16.911583
+  :sym: Ground Transportation
+
+- :name: Katowice PKP
+  :ele: 200
+  :cmt: PKP
+  :lat: 50.258292
+  :lon: 19.016744
+  :sym: Ground Transportation
+
+- :name: Ustroń Polana PKP
+  :ele: 400
+  :cmt: PKP, Beskid Śląski
+  :lat: 49.696895
+  :lon: 18.82978
+  :sym: Ground Transportation
+  :m_range: Beskid Śląski
+
+- :name: Równica
+  :ele: 885
+  :cmt: Beskid Śląski, 249m prominence
+  :lat: 49.724681
+  :lon: 18.856508
+  :sym: Summit
+  :m_range: Beskid Śląski
+
+- :name: Orłowa
+  :ele: 813
+  :cmt: Beskid Śląski
+  :lat: 49.696944
+  :lon: 18.878333
+  :sym: Summit
+  :m_range: Beskid Śląski
+
+- :name: Trzy Kopce Wiślańskie
+  :ele: 810
+  :cmt: Beskid Śląski
+  :lat: 49.664278
+  :lon: 18.907278
+  :sym: Summit
+  :m_range: Beskid Śląski
+
+- :name: Czupel (882)
+  :ele: 882
+  :cmt: Beskid Śląski
+  :lat: 49.647028
+  :lon: 18.916472
+  :sym: Summit
+  :m_range: Beskid Śląski
+
+- :name: Wisła Głębce PKP
+  :ele: 400
+  :cmt: Beskid Śląski
+  :lat: 49.621667
+  :lon: 18.875833
+  :sym: Ground Transportation
+  :m_range: Beskid Śląski
+
+- :name: Wisła Uzdrowisko PKP
+  :ele: 400
+  :cmt: Beskid Śląski
+  :lat: 49.658611
+  :lon: 18.855278
+  :sym: Ground Transportation
+  :m_range: Beskid Śląski
+
+# second day
+
+- :name: Wielka Czantoria
+  :ele: 995
+  :cmt: Beskid Śląski, 311m prominence
+  :lat: 49.678611
+  :lon: 18.804444
+  :sym: Summit
+  :m_range: Beskid Śląski
+
+- :name: Przełęcz Beskidek
+  :ele: 648
+  :cmt: Beskid Śląski
+  :lat: 49.656944
+  :lon: 18.806944
+  :sym: Trail Head
+  :m_range: Beskid Śląski
+
+- :name: Soszów Wielki
+  :ele: 886
+  :cmt: Beskid Śląski
+  :lat: 49.634389
+  :lon: 18.812972
+  :sym: Summit
+  :m_range: Beskid Śląski
+
+- :name: Cieślar
+  :ele: 920
+  :cmt: Beskid Śląski
+  :lat: 49.6245
+  :lon: 18.817139
+  :sym: Summit
+  :m_range: Beskid Śląski
+
+- :name: Stożek Wielki
+  :ele: 978
+  :cmt: Beskid Śląski
+  :lat: 49.605556
+  :lon: 18.823056
+  :sym: Summit
+  :m_range: Beskid Śląski
+
+- :name: Kiczory
+  :ele: 989
+  :cmt: Beskid Śląski, 225m prominence
+  :lat: 49.595361
+  :lon: 18.839417
+  :sym: Summit
+  :m_range: Beskid Śląski
+
