@@ -118,11 +118,27 @@ module Gpx2png
       @fixed_height = _height
     end
 
+    def enlarge_border_coords(layer)
+      _lat_min = layer.coords.collect { |c| c[:lat] }.min
+      _lat_max = layer.coords.collect { |c| c[:lat] }.max
+      _lon_min = layer.coords.collect { |c| c[:lon] }.min
+      _lon_max = layer.coords.collect { |c| c[:lon] }.max
+
+      @lat_min = _lat_min if @lat_min.nil? or _lat_min < @lat_min
+      @lat_max = _lat_max if @lat_max.nil? or _lat_max > @lat_max
+      @lon_min = _lon_min if @lon_min.nil? or _lon_min < @lon_min
+      @lon_max = _lon_max if @lon_max.nil? or _lon_max > @lon_max
+    end
+
     def initial_calculations
-      @lat_min = @coords.collect { |c| c[:lat] }.min
-      @lat_max = @coords.collect { |c| c[:lat] }.max
-      @lon_min = @coords.collect { |c| c[:lon] }.min
-      @lon_max = @coords.collect { |c| c[:lon] }.max
+      @layers.each do |l|
+        enlarge_border_coords(l)
+      end
+      # when no coords specified
+      @lat_min ||= -0.01
+      @lat_max ||= 0.01
+      @lon_min ||= -0.01
+      @lon_max ||= 0.01
 
       # auto zoom must be here
       # drawing must fit into fixed resolution
@@ -226,28 +242,32 @@ module Gpx2png
       @bitmap_point_y_max = (@full_image_y / 2).round
       @bitmap_point_y_min = (@full_image_y / 2).round
 
-      # add some coords to the map
-      (1...@coords.size).each do |i|
-        lat_from = @coords[i-1][:lat]
-        lon_from = @coords[i-1][:lon]
+      # add all coords to the map
+      @layers.each do |layer|
+        _coords = layer.coords
+        (1..._coords.size).each do |i|
 
-        lat_to = @coords[i][:lat]
-        lon_to = @coords[i][:lon]
+          lat_from = _coords[i-1][:lat]
+          lon_from = _coords[i-1][:lon]
 
-        point_from = self.class.point_on_image(@zoom, [lat_from, lon_from])
-        point_to = self.class.point_on_image(@zoom, [lat_to, lon_to])
-        # { osm_title_coord: osm_tile_coord, pixel_offset: [x, y] }
+          lat_to = _coords[i][:lat]
+          lon_to = _coords[i][:lon]
 
-        # first point
-        bitmap_xa = (point_from[:osm_title_coord][0] - @tile_x_range.min) * TILE_WIDTH + point_from[:pixel_offset][0]
-        bitmap_ya = (point_from[:osm_title_coord][1] - @tile_y_range.min) * TILE_HEIGHT + point_from[:pixel_offset][1]
-        bitmap_xb = (point_to[:osm_title_coord][0] - @tile_x_range.min) * TILE_WIDTH + point_to[:pixel_offset][0]
-        bitmap_yb = (point_to[:osm_title_coord][1] - @tile_y_range.min) * TILE_HEIGHT + point_to[:pixel_offset][1]
+          point_from = self.class.point_on_image(@zoom, [lat_from, lon_from])
+          point_to = self.class.point_on_image(@zoom, [lat_to, lon_to])
+          # { osm_title_coord: osm_tile_coord, pixel_offset: [x, y] }
 
-        @r.line(
-          bitmap_xa, bitmap_ya,
-          bitmap_xb, bitmap_yb
-        )
+          # first point
+          bitmap_xa = (point_from[:osm_title_coord][0] - @tile_x_range.min) * TILE_WIDTH + point_from[:pixel_offset][0]
+          bitmap_ya = (point_from[:osm_title_coord][1] - @tile_y_range.min) * TILE_HEIGHT + point_from[:pixel_offset][1]
+          bitmap_xb = (point_to[:osm_title_coord][0] - @tile_x_range.min) * TILE_WIDTH + point_to[:pixel_offset][0]
+          bitmap_yb = (point_to[:osm_title_coord][1] - @tile_y_range.min) * TILE_HEIGHT + point_to[:pixel_offset][1]
+
+          @r.line(
+            bitmap_xa, bitmap_ya,
+            bitmap_xb, bitmap_yb
+          )
+        end
       end
 
       # add points
