@@ -1,6 +1,6 @@
 module Gpx2png
   module Calculations
-    module Base
+    module BaseClassMethods
       # Some math stuff
       def rad2deg(rad)
         return rad * 180.0 / Math::PI

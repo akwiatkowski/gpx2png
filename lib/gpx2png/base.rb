@@ -1,9 +1,11 @@
 require 'gpx2png/layer'
-require 'gpx2png/calculations/base'
+require 'gpx2png/calculations/base_class_methods'
+require 'gpx2png/calculations/base_instance_methods'
 
 module Gpx2png
   class Base
-    extend Calculations::Base
+    extend Calculations::BaseClassMethods
+    include Calculations::BaseInstanceMethods
 
     def initialize
       @layers = Array.new
@@ -53,6 +55,12 @@ module Gpx2png
       end
     end
 
+    # Create image with fixed size
+    def fixed_size(_width, _height)
+      @fixed_width = _width
+      @fixed_height = _height
+    end
+
     attr_accessor :zoom, :color, :layers
 
     def self.simulate_download=(b)
@@ -61,6 +69,18 @@ module Gpx2png
 
     def simulate_download?
       return true if true == self.simulate_download or (defined? @@simulate_download and true == @@simulate_download)
+    end
+
+    def enlarge_border_coords(layer)
+      _lat_min = layer.coords.collect { |c| c[:lat] }.min
+      _lat_max = layer.coords.collect { |c| c[:lat] }.max
+      _lon_min = layer.coords.collect { |c| c[:lon] }.min
+      _lon_max = layer.coords.collect { |c| c[:lon] }.max
+
+      @lat_min = _lat_min if @lat_min.nil? or _lat_min < @lat_min
+      @lat_max = _lat_max if @lat_max.nil? or _lat_max > @lat_max
+      @lon_min = _lon_min if @lon_min.nil? or _lon_min < @lon_min
+      @lon_max = _lon_max if @lon_max.nil? or _lon_max > @lon_max
     end
 
   end
