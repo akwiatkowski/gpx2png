@@ -17,8 +17,8 @@ Jeweler::Tasks.new do |gem|
   gem.name = "gpx2png"
   gem.homepage = "http://github.com/akwiatkowski/gpx2png"
   gem.license = "LGPLv3"
-  gem.summary = %Q{Convert routes to map files using Openstreetmap tileset}
-  gem.description = %Q{Convert routes to map files using Openstreetmap tileset.}
+  gem.summary = %Q{Convert routes to image map files using Openstreetmap tileset}
+  gem.description = %Q{Convert routes to image map files using Openstreetmap tileset.}
   gem.email = "bobikx@poczta.fm"
   gem.authors = ["Aleksander Kwiatkowski"]
   # dependencies defined in Gemfile
