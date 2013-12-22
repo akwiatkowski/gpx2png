@@ -57,5 +57,9 @@ module Gpx2png
       # TODO
     end
 
+    def destroy
+      @image = nil
+    end
+
   end
 end

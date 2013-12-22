@@ -26,5 +26,6 @@ describe Gpx2png::Osm do
       lon: g.coords.last[:lon]
     )
     e.save("samples/tmp/png_with_markerss.png")
+    e.destroy
   end
 end

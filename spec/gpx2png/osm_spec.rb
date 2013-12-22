@@ -5,7 +5,7 @@ describe Gpx2png::Osm do
   begin
     require 'RMagick'
     @rmagick = true
-  rescue
+  rescue LoadError
     puts "RMagick not available"
     @rmagick = false
   end
@@ -13,7 +13,7 @@ describe Gpx2png::Osm do
   begin
     require 'chunky_png'
     @chunky = true
-  rescue
+  rescue LoadError
     puts "chunky_png not available"
     @chunky = false
   end
@@ -26,6 +26,7 @@ describe Gpx2png::Osm do
       e.add(51.0, 21.0)
       e.add(50.0, 21.0)
       e.save('samples/tmp/png_sample1_simple.png')
+      e.destroy
     end
 
     it "should create using GPX file with set zoom" do
@@ -36,6 +37,7 @@ describe Gpx2png::Osm do
       e.coords = g.coords
       e.zoom = 8
       e.save('samples/tmp/png_sample2_real_route.png')
+      e.destroy
     end
 
     it "should create using GPX file with some renderer options" do
@@ -49,6 +51,7 @@ describe Gpx2png::Osm do
       e.zoom = 13
 
       e.save('samples/tmp/png_sample3_with_option.png')
+      e.destroy
     end
 
     it "should create using GPX file with some fixed resolutions" do
@@ -75,6 +78,7 @@ describe Gpx2png::Osm do
         #e.renderer_options = { aa: false, color: '#0000FF', opacity: 0.5, crop_enabled: true }
         e.coords = g.coords
         e.save("samples/tmp/png_sample4_simulation_fixed_#{width}_#{height}.png")
+        e.destroy
       end
     end
   end
@@ -90,6 +94,7 @@ describe Gpx2png::Osm do
       e.coords = g.coords
       e.zoom = 8
       e.save('samples/tmp/png_sample2_chunky_real_route.png')
+      e.destroy
     end
   end
 

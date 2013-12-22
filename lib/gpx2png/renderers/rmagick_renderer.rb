@@ -6,8 +6,8 @@ $:.unshift(File.dirname(__FILE__))
 
 module Gpx2png
   class RmagickRenderer
-    def initialize(_options = { })
-      @options = _options || { }
+    def initialize(_options = {})
+      @options = _options || {}
       @color = @options[:color] || '#FF0000'
       @width = @options[:width] || 3
       @aa = @options[:aa] == true
@@ -180,6 +180,11 @@ module Gpx2png
       # draw point images
       render_markers
       render_marker_labels
+    end
+
+    # remove object, memory issues
+    def destroy
+      @image.destroy!
     end
 
     def save(filename)

@@ -11,6 +11,7 @@ describe Gpx2png::Osm do
       e.coords = g.coords
       e.fixed_size(2000, 2000)
       e.save("samples/tmp/png_sample2_chunky_real_route_#{e.class.to_s.gsub(/\W/, '_')}.png")
+      e.destroy
     end
   end
 end

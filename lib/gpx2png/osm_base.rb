@@ -301,5 +301,10 @@ module Gpx2png
       "Map data OpenStreetMap (CC-by-SA 2.0)"
     end
 
+    def destroy
+      @r.destroy
+      puts "Image destroyed" if @verbose
+    end
+
   end
 end
