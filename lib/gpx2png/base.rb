@@ -63,6 +63,8 @@ module Gpx2png
 
     attr_accessor :zoom, :color, :layers
 
+    attr_accessor :simulate_download
+
     def self.simulate_download=(b)
       @@simulate_download = b
     end
@@ -71,16 +73,9 @@ module Gpx2png
       return true if true == self.simulate_download or (defined? @@simulate_download and true == @@simulate_download)
     end
 
-    def enlarge_border_coords(layer)
-      _lat_min = layer.coords.collect { |c| c[:lat] }.min
-      _lat_max = layer.coords.collect { |c| c[:lat] }.max
-      _lon_min = layer.coords.collect { |c| c[:lon] }.min
-      _lon_max = layer.coords.collect { |c| c[:lon] }.max
-
-      @lat_min = _lat_min if @lat_min.nil? or _lat_min < @lat_min
-      @lat_max = _lat_max if @lat_max.nil? or _lat_max > @lat_max
-      @lon_min = _lon_min if @lon_min.nil? or _lon_min < @lon_min
-      @lon_max = _lon_max if @lon_max.nil? or _lon_max > @lon_max
+    def destroy
+      @r.destroy
+      puts "Image destroyed" if @verbose
     end
 
   end
