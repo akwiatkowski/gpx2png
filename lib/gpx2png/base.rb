@@ -1,9 +1,9 @@
 require 'gpx2png/layer'
-
-#$:.unshift(File.dirname(__FILE__))
+require 'gpx2png/calculations/base'
 
 module Gpx2png
   class Base
+    extend Calculations::Base
 
     def initialize
       @layers = Array.new
@@ -55,13 +55,12 @@ module Gpx2png
 
     attr_accessor :zoom, :color, :layers
 
-    # Some math stuff
-    def self.rad2deg(rad)
-      return rad * 180.0 / Math::PI
+    def self.simulate_download=(b)
+      @@simulate_download = b
     end
 
-    def self.deg2rad(deg)
-      return deg * Math::PI / 180.0
+    def simulate_download?
+      return true if true == self.simulate_download or (defined? @@simulate_download and true == @@simulate_download)
     end
 
   end
