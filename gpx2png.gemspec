@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "gpx2png"
-  s.version = "0.2.0"
+  s.version = "0.3.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Aleksander Kwiatkowski"]
-  s.date = "2013-12-22"
+  s.date = "2013-12-23"
   s.description = "Convert routes to image map files using Openstreetmap tileset."
   s.email = "bobikx@poczta.fm"
   s.executables = ["gpx2png"]
@@ -28,10 +28,19 @@ Gem::Specification.new do |s|
     "lib/gpx2png.rb",
     "lib/gpx2png/assets/sample_marker.rb",
     "lib/gpx2png/base.rb",
+    "lib/gpx2png/calculations/base_class_methods.rb",
+    "lib/gpx2png/calculations/base_instance_methods.rb",
+    "lib/gpx2png/calculations/osm_class_methods.rb",
+    "lib/gpx2png/calculations/osm_instance_methods.rb",
+    "lib/gpx2png/landscape.rb",
+    "lib/gpx2png/layer.rb",
+    "lib/gpx2png/opencycle.rb",
     "lib/gpx2png/osm.rb",
     "lib/gpx2png/osm_base.rb",
+    "lib/gpx2png/outdoors.rb",
     "lib/gpx2png/renderers/chunky_png_renderer.rb",
     "lib/gpx2png/renderers/rmagick_renderer.rb",
+    "lib/gpx2png/transport.rb",
     "lib/gpx2png/ump.rb"
   ]
   s.homepage = "http://github.com/akwiatkowski/gpx2png"
@@ -47,6 +56,7 @@ Gem::Specification.new do |s|
       s.add_runtime_dependency(%q<mini_exiftool>, [">= 0"])
       s.add_runtime_dependency(%q<rmagick>, [">= 0"])
       s.add_runtime_dependency(%q<gpx_utils>, [">= 0"])
+      s.add_runtime_dependency(%q<colorize>, [">= 0"])
       s.add_development_dependency(%q<rspec>, [">= 0"])
       s.add_development_dependency(%q<bundler>, [">= 0"])
       s.add_development_dependency(%q<jeweler>, [">= 0"])
@@ -55,6 +65,7 @@ Gem::Specification.new do |s|
       s.add_dependency(%q<mini_exiftool>, [">= 0"])
       s.add_dependency(%q<rmagick>, [">= 0"])
       s.add_dependency(%q<gpx_utils>, [">= 0"])
+      s.add_dependency(%q<colorize>, [">= 0"])
       s.add_dependency(%q<rspec>, [">= 0"])
       s.add_dependency(%q<bundler>, [">= 0"])
       s.add_dependency(%q<jeweler>, [">= 0"])
@@ -64,6 +75,7 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<mini_exiftool>, [">= 0"])
     s.add_dependency(%q<rmagick>, [">= 0"])
     s.add_dependency(%q<gpx_utils>, [">= 0"])
+    s.add_dependency(%q<colorize>, [">= 0"])
     s.add_dependency(%q<rspec>, [">= 0"])
     s.add_dependency(%q<bundler>, [">= 0"])
     s.add_dependency(%q<jeweler>, [">= 0"])
