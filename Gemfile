@@ -2,9 +2,8 @@ source "http://rubygems.org"
 
 gem 'mini_exiftool'
 gem 'rmagick'
-# removed
-#gem 'chunky_png'
 gem 'gpx_utils'
+gem 'colorize'
 
 group :development do
   gem "rspec"

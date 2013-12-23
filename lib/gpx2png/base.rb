@@ -1,3 +1,5 @@
+require 'colorize'
+require 'logger'
 require 'gpx2png/layer'
 require 'gpx2png/calculations/base_class_methods'
 require 'gpx2png/calculations/base_instance_methods'
@@ -18,6 +20,7 @@ module Gpx2png
 
     def add_layer(_layer_options)
       if @single_layer
+        self.class.logger.debug("Created #{"first".to_s.red} layer")
         # turn off single layer version
         @single_layer = false
         # set layer options for first layer and return it
@@ -29,6 +32,7 @@ module Gpx2png
         _layer = Layer.new
         _layer.options = _layer_options
         @layers << _layer
+        self.class.logger.debug("Created layer, count: #{@layers.size.to_s.red}")
         return _layer
       end
     end
@@ -40,6 +44,7 @@ module Gpx2png
         _layer.add(lat, lon)
       else
         # I'm afraid Dave I can't do that
+        self.class.logger.fatal("After you added layer you can use coords only from layers")
         raise StandardError
       end
     end
@@ -51,6 +56,7 @@ module Gpx2png
         _layer.coords = _coords
       else
         # I'm afraid Dave I can't do that
+        self.class.fatal("After you added layer you can use coords only from layers")
         raise StandardError
       end
     end
@@ -66,6 +72,7 @@ module Gpx2png
     attr_accessor :simulate_download
 
     def self.simulate_download=(b)
+      logger.debug("Simulate tiles download for class #{self.to_s.blue}") if b
       @@simulate_download = b
     end
 
@@ -75,7 +82,16 @@ module Gpx2png
 
     def destroy
       @r.destroy
-      puts "Image destroyed" if @verbose
+      self.class.logger.debug "Image destroyed"
+    end
+
+    def self.logger=(_logger)
+      @@logger = _logger
+    end
+
+    def self.logger
+      @@logger = Logger.new(STDOUT) unless defined? @@logger
+      return @@logger
     end
 
   end
