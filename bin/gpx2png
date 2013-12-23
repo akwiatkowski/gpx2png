@@ -6,7 +6,7 @@ require 'gpx2png/osm'
 require 'gpx2png/ump'
 require 'optparse'
 
-options = { }
+options = {}
 OptionParser.new do |opts|
   opts.banner = "Usage: gpx2png [options]"
 
@@ -22,8 +22,8 @@ OptionParser.new do |opts|
   opts.on("-o", "--output FILE", "Output image file") do |v|
     options[:output_file] = v
   end
-  opts.on("-u", "--ump", "Use UMP tiles rather than OSM") do
-    options[:ump] = true
+  opts.on("-k", "--klass CLASS", "Use different map provider (osm, ump, cycle, transport, outdoors, landscape)") do |v|
+    options[:klass] = v
   end
 end.parse!
 
@@ -40,15 +40,26 @@ if options[:zoom].nil? and options[:size].nil?
   @fail = true
 end
 
+klass = case options[:klass].to_s
+          when "ump" then
+            Gpx2png::Ump
+          when "cycle" then
+            Gpx2png::OpenCycle
+          when "transport" then
+            Gpx2png::Transport
+          when "outdoors" then
+            Gpx2png::Outdoors
+          when "landscape" then
+            Gpx2png::Landscape
+          else
+            Gpx2png::Osm
+        end
+
 unless @fail
   g = GpxUtils::TrackImporter.new
   g.add_file(options[:gpx])
 
-  if options[:ump]
-    e = Gpx2png::Ump.new
-  else
-    e = Gpx2png::Osm.new
-  end
+  e = klass.new
   e.coords = g.coords
 
   if options[:size]
@@ -58,7 +69,7 @@ unless @fail
   else
     # constant zoom
     e.zoom = options[:zoom].to_i
-    e.renderer_options = {crop_enabled: true}
+    e.renderer_options = { crop_enabled: true }
   end
 
   e.save(options[:output_file])
