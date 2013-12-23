@@ -2,8 +2,6 @@ require 'rubygems'
 require 'RMagick'
 require 'gpx2png/assets/sample_marker'
 
-$:.unshift(File.dirname(__FILE__))
-
 module Gpx2png
   class RmagickRenderer
     def initialize(_options = {})

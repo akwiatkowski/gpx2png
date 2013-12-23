@@ -1,8 +1,6 @@
 require 'rubygems'
 require 'gpx2png/osm'
 
-$:.unshift(File.dirname(__FILE__))
-
 module Gpx2png
   class Ump < Osm
 

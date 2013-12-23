@@ -1,7 +1,7 @@
 require 'rubygems'
 require 'chunky_png'
 
-$:.unshift(File.dirname(__FILE__))
+# WARNING: deprecated
 
 # This renderer has some/a lot of features missing
 module Gpx2png
