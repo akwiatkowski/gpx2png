@@ -130,7 +130,7 @@ module Gpx2png
               y: y
             }
 
-            self.class.logger.debug "processed #{(x - @tile_x_range.min).to_s.red} x #{(y - @tile_y_range.min).to_s.red} (max #{(@tile_x_range.max - @tile_x_range.min).to_s.yellow} x #{(@tile_y_range.max - @tile_y_range.min).to_s.yellow})"
+            self.class.logger.info "processed #{(x - @tile_x_range.min).to_s.red} x #{(y - @tile_y_range.min).to_s.red} (max #{(@tile_x_range.max - @tile_x_range.min).to_s.yellow} x #{(@tile_y_range.max - @tile_y_range.min).to_s.yellow})"
           end
         end
 
@@ -143,8 +143,10 @@ module Gpx2png
         @bitmap_point_y_min = (@full_image_y / 2).round
 
         # add all coords to the map
+        _coords_count = 0
         @layers.each do |layer|
           _coords = layer.coords
+          _coords_count += _coords.size
           (1..._coords.size).each do |i|
 
             lat_from = _coords[i-1][:lat]
@@ -169,6 +171,7 @@ module Gpx2png
             )
           end
         end
+        self.class.logger.info "Layers - #{@layers.size.to_s.red} with #{_coords_count.to_s.yellow} coords have been added to image"
 
         # add points
         @markers.each do |point|
@@ -184,6 +187,8 @@ module Gpx2png
 
           @r.markers << point
         end
+        self.class.logger.info "Markers - #{@markers.size.to_s.red} have been added to image"
+
       end
 
 

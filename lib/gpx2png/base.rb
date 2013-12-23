@@ -81,12 +81,12 @@ module Gpx2png
     def fixed_size(_width, _height)
       @fixed_width = _width
       @fixed_height = _height
-      self.class.debug("Map image fixed dimension set #{@fixed_width.to_s.red} x #{@fixed_height.to_s.red}")
+      self.class.logger.debug("Map image fixed dimension set #{@fixed_width.to_s.red} x #{@fixed_height.to_s.red}")
       true
     end
 
     def zoom=(_zoom)
-      self.class.debug("Map zoom set #{_zoom.to_s.red}")
+      self.class.logger.debug("Map zoom set #{_zoom.to_s.red}")
       @zoom = _zoom
     end
 
