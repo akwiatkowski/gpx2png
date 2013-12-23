@@ -24,7 +24,7 @@ module Gpx2png
             @lon_min, @lon_max,
             @fixed_width, @fixed_height
           )
-          puts "Calculated new zoom #{@new_zoom} (was #{@zoom})" if @verbose
+          self.class.logger.debug "Calculated new zoom #{@new_zoom.to_s.red} (was #{@zoom.to_s.red})"
           @zoom = @new_zoom
         end
 
@@ -41,8 +41,8 @@ module Gpx2png
         if @fixed_width and @fixed_height
           x_axis_expand_count = ((@fixed_width - (1 + @tile_x_range.max - @tile_x_range.min) * TILE_WIDTH).to_f / (TILE_WIDTH.to_f * 2.0)).ceil
           y_axis_expand_count = ((@fixed_height - (1 + @tile_y_range.max - @tile_y_range.min) * TILE_HEIGHT).to_f / (TILE_HEIGHT.to_f * 2.0)).ceil
-          puts "Expanding X tiles from both sides #{x_axis_expand_count}" if @verbose
-          puts "Expanding Y tiles from both sides #{y_axis_expand_count}" if @verbose
+          self.class.logger.debug "Expanding #{"X".to_s.blue} tiles from both sides #{x_axis_expand_count.to_s.green}"
+          self.class.logger.debug "Expanding #{"Y".to_s.blue} tiles from both sides #{y_axis_expand_count.to_s.green}"
           @tile_x_range = ((@tile_x_range.min - x_axis_expand_count)..(@tile_x_range.max + x_axis_expand_count))
           @tile_y_range = ((@tile_y_range.min - y_axis_expand_count)..(@tile_y_range.max + y_axis_expand_count))
         end
@@ -98,7 +98,7 @@ module Gpx2png
 
       # Do everything
       def download_and_join_tiles
-        puts "Output image dimension #{@full_image_x}x#{@full_image_y}" if @verbose
+        self.class.logger.info "Output image dimension #{@full_image_x.to_s.red} x #{@full_image_y.to_s.red}"
         @r.new_image
 
         # {:x, :y, :blob}
@@ -130,7 +130,7 @@ module Gpx2png
               y: y
             }
 
-            puts "processed #{x - @tile_x_range.min}x#{y - @tile_y_range.min} (max #{@tile_x_range.max - @tile_x_range.min}x#{@tile_y_range.max - @tile_y_range.min})" if @verbose
+            self.class.logger.debug "processed #{(x - @tile_x_range.min).to_s.red} x #{(y - @tile_y_range.min).to_s.red} (max #{(@tile_x_range.max - @tile_x_range.min).to_s.yellow} x #{(@tile_y_range.max - @tile_y_range.min).to_s.yellow})"
           end
         end
 

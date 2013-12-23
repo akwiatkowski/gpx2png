@@ -23,6 +23,8 @@ module Gpx2png
         @lat_max = _lat_max if @lat_max.nil? or _lat_max > @lat_max
         @lon_min = _lon_min if @lon_min.nil? or _lon_min < @lon_min
         @lon_max = _lon_max if @lon_max.nil? or _lon_max > @lon_max
+
+        self.class.logger.debug("Border coords #{@lat_min.to_s.green},#{@lon_min.to_s.green} - #{@lat_max.to_s.green},#{@lon_max.to_s.green}")
       end
 
     end
