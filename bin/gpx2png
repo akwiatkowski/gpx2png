@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 
 require 'rubygems'
-require 'gpx2exif'
+require 'gpx_utils'
 require 'gpx2png/osm'
 require 'gpx2png/ump'
 require 'optparse'
