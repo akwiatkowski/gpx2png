@@ -65,7 +65,7 @@ unless @fail
   if options[:size]
     # constant size
     options[:size] =~ /(\d+)x(\d+)/
-    e.fixed_size($1.to_i, $1.to_i)
+    e.fixed_size($1.to_i, $2.to_i)
   else
     # constant zoom
     e.zoom = options[:zoom].to_i
