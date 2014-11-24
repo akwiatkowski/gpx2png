@@ -13,7 +13,7 @@ module Gpx2png
         x = (((lon_deg + 180) / 360) * (2 ** zoom)).floor
         y = ((1 - Math.log(Math.tan(lat_rad) + 1 / Math.cos(lat_rad)) / Math::PI) /2 * (2 ** zoom)).floor
 
-        logger.debug "Converted #{lat_deg.to_s.green},#{lat_deg.to_s.green} to [#{x.to_s.red},#{y.to_s.red}]"
+        logger.debug "Converted #{lat_deg.to_s.green},#{lon_deg.to_s.green} to [#{x.to_s.red},#{y.to_s.red}]"
 
         return [x, y]
       end
@@ -30,24 +30,24 @@ module Gpx2png
         return [lat_deg, lon_deg]
       end
 
-      # Lazy calc proper zoom for drawing
+      # Calc proper zoom for drawing
       def calc_zoom(lat_min, lat_max, lon_min, lon_max, width, height)
-        # because I'm lazy! :] and math is not my best side
-
-        last_zoom = 2
-        (5..18).each do |zoom|
-          # calculate drawing tile size and pixel size
-          tile_min = point_on_absolute_image(zoom, [lat_min, lon_min])
-          tile_max = point_on_absolute_image(zoom, [lat_max, lon_max])
-          current_pixel_x_distance = tile_max[0] - tile_min[0]
-          current_pixel_y_distance = tile_min[1] - tile_max[1]
-          if current_pixel_x_distance > width or current_pixel_y_distance > height
-            logger.debug "Calculated best zoom #{last_zoom.to_s.red}"
-            return last_zoom
-          end
-          last_zoom = zoom
+        zoom_to_fit_width = (Math.log2((360.0 * width) / (TILE_WIDTH * (lat_max - lat_min)))).floor
+        logger.debug "Calculated maximum zoom to fit width #{zoom_to_fit_width.to_s.red}"
+        zoom_to_fit_height = (Math.log2(height / (TILE_HEIGHT * (Math.log(Math.tan(lat_max * (Math::PI / 180.0)) + (1.0 / Math.cos(lat_max * (Math::PI / 180.0)))) - Math.log(Math.tan(lat_min * (Math::PI / 180.0)) + (1.0 / Math.cos(lat_min * (Math::PI / 180.0))))) / Math::PI))).floor + 1
+        logger.debug "Calculated maximum zoom to fit height #{zoom_to_fit_height.to_s.red}"
+        zoom = [zoom_to_fit_width, zoom_to_fit_height].min
+        logger.debug "Calculated minimum zoom #{zoom.to_s.red}"
+        if zoom > 18
+          # in case we got one meter GPX
+          logger.debug "Zoom is too high, choose 18"
+          return 18
+        elsif zoom < 0
+          logger.debug "Zoom is too low, choose 0"
+          return 0
+        else
+          return zoom
         end
-        return 18
       end
 
       # Convert latlon deg coords to image point (x,y) and OSM tile coord
