@@ -32,7 +32,7 @@ module Gpx2png
 
       # Calc proper zoom for drawing
       def calc_zoom(lat_min, lat_max, lon_min, lon_max, width, height)
-        zoom_to_fit_width = (Math.log2((360.0 * width) / (TILE_WIDTH * (lat_max - lat_min)))).floor
+        zoom_to_fit_width = (Math.log2((360.0 * width) / (TILE_WIDTH * (lon_max - lon_min)))).floor
         logger.debug "Calculated maximum zoom to fit width #{zoom_to_fit_width.to_s.red}"
         zoom_to_fit_height = (Math.log2(height / (TILE_HEIGHT * (Math.log(Math.tan(lat_max * (Math::PI / 180.0)) + (1.0 / Math.cos(lat_max * (Math::PI / 180.0)))) - Math.log(Math.tan(lat_min * (Math::PI / 180.0)) + (1.0 / Math.cos(lat_min * (Math::PI / 180.0))))) / Math::PI))).floor + 1
         logger.debug "Calculated maximum zoom to fit height #{zoom_to_fit_height.to_s.red}"
